@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
 
@@ -12,25 +14,25 @@ class _OpinionState extends State<Opinion> {
   List filedata = [
     {
       'name': 'Usuario 1',
-      'pic': 'https://picsum.photos/300/30',
+      'pic': 'https://picsum.photos/300/301',
       'message':
           'Et aliquip labore consectetur aliqua duis Lorem est. Ipsum sint non eu occaecat sint occaecat ex tempor incididunt aliquip Lorem labore sit ipsum. Consequat dolor ex reprehenderit excepteur qui.'
     },
     {
       'name': 'Usuario 2',
-      'pic': 'https://picsum.photos/300/30',
+      'pic': 'https://picsum.photos/300/302',
       'message':
           'Sint commodo deserunt excepteur tempor cillum enim elit nostrud aliqua voluptate officia occaecat minim culpa.'
     },
     {
       'name': 'Usuario 3',
-      'pic': 'https://picsum.photos/300/30',
+      'pic': 'https://picsum.photos/300/303',
       'message':
           'Ipsum et occaecat enim commodo nulla ullamco. Cupidatat anim sunt exercitation qui consequat eu in minim.'
     },
     {
       'name': 'Usuario 4',
-      'pic': 'https://picsum.photos/300/30',
+      'pic': 'https://picsum.photos/300/304',
       'message':
           'Ut nostrud do reprehenderit do enim nulla cupidatat anim deserunt. In Lorem deserunt do pariatur duis. Enim labore mollit enim exercitation. Laboris eiusmod qui cillum fugiat non eu excepteur laborum aliqua minim incididunt adipisicing quis.'
     },
@@ -52,11 +54,11 @@ class _OpinionState extends State<Opinion> {
                   height: 50.0,
                   width: 50.0,
                   decoration: new BoxDecoration(
-                      color: Colors.blue,
+                      color: Color.fromARGB(255, 156, 156, 156),
                       borderRadius: new BorderRadius.all(Radius.circular(50))),
                   child: CircleAvatar(
                       radius: 50,
-                      backgroundImage: NetworkImage(data[i]['pic'] + "$i")),
+                      backgroundImage: NetworkImage(data[i]['pic'])),
                 ),
               ),
               title: Text(
@@ -79,19 +81,20 @@ class _OpinionState extends State<Opinion> {
       ),
       body: Container(
         child: CommentBox(
-          userImage: "assets/images",
+          userImage:
+              'https://support.hubstaff.com/wp-content/uploads/2019/08/good-pic-768x733.png',
           child: commentChild(filedata),
-          labelText: 'Write a comment...',
+          labelText: 'Comentario...',
           withBorder: false,
-          errorText: 'Comment cannot be blank',
+          errorText: 'Comentario no puede estar vacio',
           sendButtonMethod: () {
             if (formKey.currentState!.validate()) {
               print(commentController.text);
               setState(() {
                 var value = {
-                  'name': 'New User',
+                  'name': 'Usuario Nuevo',
                   'pic':
-                      'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
+                      'https://support.hubstaff.com/wp-content/uploads/2019/08/good-pic-768x733.png',
                   'message': commentController.text
                 };
                 filedata.insert(0, value);
